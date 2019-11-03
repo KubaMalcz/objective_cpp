@@ -35,7 +35,7 @@ int main(){
 
 	cout << endl << endl << "LABORATORIUM 2:" << endl << endl;
 	pojemnik poj;
-	poj.dodaj(v1);
+	//poj.dodaj(v1);
 
 
 	system("PAUSE");

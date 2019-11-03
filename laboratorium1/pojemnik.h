@@ -16,7 +16,7 @@ public:
 		cout << "Destruktor" << endl;
 		delete[] mdata;
 	}
-
+	/*
 	void dodaj(const wektor2d& v) {
 		wektor2d* temp1;
 		msize += 1;
@@ -31,7 +31,7 @@ public:
 		mdata = temp1;
 		cout << "Dodano wektor"; 
 		cout << " do pojemnika" << endl;
-	}
+	}*/
 	
 private:
 	int msize;
