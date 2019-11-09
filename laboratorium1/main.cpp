@@ -5,7 +5,6 @@ using namespace std;
 
 
 
-
 int main(){
 	
 	cout << "ZADANIE 1:" << endl;
@@ -40,6 +39,22 @@ int main(){
 	poj.dodaj(wektor2d(3, 2));
 	poj.dodaj(wektor2d(8, 4));
 
+	cout << endl << "ZADANIE 2:" << endl;
+	poj.DrukujWszystko();
+
+	cout << endl << "ZADANIE 3:" << endl;
+	cout << "Suma wektorow to: " << endl;
+	poj.Suma().Drukuj();
+	cout << endl;
+
+	cout << endl << "ZADANIE 4:" << endl;
+	cout << v1;
+	cout << endl;
+	cout << v1 << v2;
+	poj.DrukujWszystko2();
+
+	cout << endl << "ZADANIE 5:" << endl;
+	poj.Max().Drukuj();
 
 	system("PAUSE");
 	return 0;
