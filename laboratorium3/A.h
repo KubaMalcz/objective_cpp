@@ -10,6 +10,6 @@ public:
 
 	int static mattr;
 
-	int attr;
+	int attr=0;
 
 };
