@@ -31,4 +31,14 @@ int Autobus::GetLiPasazerow() {
 	return l_pasazerow;
 };
 
+bool operator==(const Autobus& a, const Autobus& b) {
+	if (a.l_pasazerow == b.l_pasazerow) {
+		return true;
+	}
+	else
+	{
+		return false;
+	};
+}
+
 int Autobus::indx2 = 0;

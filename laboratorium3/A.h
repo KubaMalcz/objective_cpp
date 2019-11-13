@@ -8,6 +8,8 @@ public:
 	A();
 	~A();
 
-	int mattr;
+	int static mattr;
+
+	int attr;
 
 };

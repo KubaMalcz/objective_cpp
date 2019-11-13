@@ -8,7 +8,7 @@ public:
 
 	Autobus();
 
-	Autobus(const int& m);
+	explicit Autobus(const int& m);
 
 	Autobus(const int& i, const int& lp);
 
@@ -19,6 +19,8 @@ public:
 private:
 	int l_pasazerow, nr2;
 	int static indx2;
+
+	friend bool operator==(const Autobus& a, const Autobus& b);
 
 };
 
