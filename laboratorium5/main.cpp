@@ -62,7 +62,7 @@ int main() {
 		wektor2d<double> wt4 = mymax(wt1, wt2);
 		cout << wt4;
 		cout << endl;
-		//Wyjatek_str();
+		Wyjatek_str();
 		//Wyjatek_int();
 		//throw Except1();
 		//throw Except2(__LINE__);

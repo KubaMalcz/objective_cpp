@@ -145,6 +145,18 @@ bool operator>(const wektor2d<T>& a, const wektor2d<Y>& b)
 //	};
 //};
 
+template <class T>
+ostream& operator<<(ostream& o, const wektor2d<T>& w) {
+	o << "wektor T [" << w.GetX() << ", " << w.GetY() << "]" << endl;
+	return o;
+};
+
+
+inline ostream& operator<<(ostream& o, const wektor2d<int>& w) {
+	o << "Wektor int [" << w.x << ", " << w.y << "]" << endl;
+	return o;
+};
+
 template<class T>
 wektor2d<T> mymax(wektor2d<T> w1, wektor2d<T> w2) {
 	wektor2d<T> R;
