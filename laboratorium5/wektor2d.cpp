@@ -31,11 +31,11 @@ wektor2d<T>::wektor2d(const wektor2d& v)
 	indx += 1;
 }
 
-//template <class T>
-//wektor2d<T>::~wektor2d()
-//{
-//	//cout << "destruktor " << nr << ": [" << x << ", " << y << "]" << endl;
-//}
+template <class T>
+wektor2d<T>::~wektor2d()
+{
+	//cout << "destruktor " << nr << ": [" << x << ", " << y << "]" << endl;
+}
 
 template <class T>
 void wektor2d<T>::Drukuj()
@@ -44,7 +44,7 @@ void wektor2d<T>::Drukuj()
 }
 
 template <class T>
-wektor2d<T>& wektor2d<T>::operator+=(const wektor2d& v2d_2)
+wektor2d<T>& wektor2d<T>::operator+=(const wektor2d<T>& v2d_2)
 {
 	x = x + v2d_2.x;
 	y = y + v2d_2.y;
@@ -55,8 +55,8 @@ wektor2d<T>& wektor2d<T>::operator+=(const wektor2d& v2d_2)
 template <class T>
 wektor2d<T>& wektor2d<T>::operator=(const wektor2d& v2d_3)
 {
-	x = dynamic_cast<T>(v2d_3.x);
-	y = dynamic_cast<T>(v2d_3.y);
+	x = v2d_3.x;
+	y = v2d_3.y;
 	//cout << "Operator '='" << endl;
 	return *this;
 }
@@ -68,52 +68,57 @@ void wektor2d<T>::SetX(const T& xx)
 }
 
 template <class T>
-double wektor2d<T>::GetX()
+T wektor2d<T>::GetX() const
 {
 	return x;
 }
 
 template <class T>
-double wektor2d<T>::GetY()
+T wektor2d<T>::GetY() const
 {
 	return y;
 }
+//
+//template <class T>
+//wektor2d<T> operator+(const wektor2d<T>& a, const wektor2d<T>& b)
+//{
+//	wektor2d<T> temp;
+//	temp.x = a.x + b.x;
+//	temp.y = a.y + b.y;
+//	cout << "Dodawanie dwa parametry" << endl;
+//	return temp;
+//};
+
+
+
 
 template <class T>
-wektor2d<T> operator+(const wektor2d<T>& a, const wektor2d<T>& b)
+T wektor2d<T>::length_kw()
 {
-	wektor2d<T> temp;
-	temp.x = a.x + b.x;
-	temp.y = a.y + b.y;
-	//cout << "Dodawanie dwa parametry" << endl;
-	return temp;
+	return x * x + y * y;
 };
+//
+//template <class T, class Y>
+//bool operator<(const wektor2d<T>& a, const wektor2d<Y>& b)
+//{
+//	T l1;
+//	Y l2;
+//	l1 = a.x * a.x + a.y * a.y;
+//	l2 = b.x * b.x + b.y * b.y;
+//	if (l1 < l2) {
+//		return true;
+//	}
+//	else
+//	{
+//		return false;
+//	};
+//};
 
-template <class T>
-ostream& operator<<(ostream& o, const wektor2d<T>& w) {
-	o << "wektor [" << w.x << ", " << w.y << "]" << endl;
-	return o;
-};
-
-template <class T>
-bool operator<(const wektor2d<T>& a, const wektor2d<T>& b)
+template <class T, class Y>
+bool operator>(const wektor2d<T>& a, const wektor2d<Y>& b)
 {
-	T l1, l2;
-	l1 = a.x * a.x + a.y * a.y;
-	l2 = b.x * b.x + b.y * b.y;
-	if (l1 < l2) {
-		return true;
-	}
-	else
-	{
-		return false;
-	};
-};
-
-template <class T>
-bool operator>(const wektor2d<T>& a, const wektor2d<T>& b)
-{
-	double l1, l2;
+	T l1;
+	Y l2;
 	l1 = a.x * a.x + a.y * a.y;
 	l2 = b.x * b.x + b.y * b.y;
 	if (l1 > l2) {
@@ -124,21 +129,28 @@ bool operator>(const wektor2d<T>& a, const wektor2d<T>& b)
 		return false;
 	};
 };
+//
+//template <class T>
+//bool operator==(const wektor2d<T>& a, const wektor2d<T>& b)
+//{
+//	double l1, l2;
+//	l1 = a.x * a.x + a.y * a.y;
+//	l2 = b.x * b.x + b.y * b.y;
+//	if (l1 = l2) {
+//		return true;
+//	}
+//	else
+//	{
+//		return false;
+//	};
+//};
 
-template <class T>
-bool operator==(const wektor2d<T>& a, const wektor2d<T>& b)
-{
-	double l1, l2;
-	l1 = a.x * a.x + a.y * a.y;
-	l2 = b.x * b.x + b.y * b.y;
-	if (l1 = l2) {
-		return true;
-	}
-	else
-	{
-		return false;
-	};
-};
+template<class T>
+wektor2d<T> mymax(wektor2d<T> w1, wektor2d<T> w2) {
+	wektor2d<T> R;
+	if (w1.length_kw() > w2.length_kw()) return R = w1;
+	else return R = w2;
+}
 
 template <class T>
 int wektor2d<T>::indx = 0;
