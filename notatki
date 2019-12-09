@@ -1,0 +1,12 @@
+KOLOKWIUM C++ zakres: 
+* przeciążanie operatorów - co najwyżej >/<
+* template - podstawy
+* Polimorfizm: SOLID, Design Patterns, UML class diagrams
+
+Moj projekt to nr.7 - ksiazka adresowa
+
+Sposoby na templaty:
+	1. wszystko w .h
+	2. deklaracje w .h; definicje w .cpp -> uzywanie inline, 
+		lub wczesniejsze explicit deklarowanie w uzytych typow w .cpp
+	3. deklaracje w .h; definicje w .tpp; specjalizacje w .cpp; includuj .tpp
