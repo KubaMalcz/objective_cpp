@@ -36,13 +36,14 @@ private:
 
 	//friend ostream& operator<<(ostream& o, const wektor2d<T>& w);
 
-
-	friend ostream& operator<<(ostream& o, const wektor2d<int>& w);
+	template<class T2>
+	friend ostream& operator<<(ostream& o, const wektor2d<T2>& w);
 
 	//template <>
 	//friend ostream& operator<<(ostream& o, const wektor2d<T>& w);
 	//friend bool operator<(const wektor2d& a, const wektor2d& b);
-	friend bool operator>(const wektor2d& a, const wektor2d& b);
+	template<class T2>
+	friend bool operator>(const wektor2d<T2>& a, const wektor2d<T2>& b);
 	//friend bool operator==(const wektor2d& a, const wektor2d& b);
 };
 

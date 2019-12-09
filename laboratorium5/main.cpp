@@ -6,7 +6,7 @@
 #include "Except1.h"
 #include "Except2.h"
 #include "wektor2d.h"
-#include "wektor2d.cpp"
+#include "wektor2d.tpp"
 
 using namespace std;
 
