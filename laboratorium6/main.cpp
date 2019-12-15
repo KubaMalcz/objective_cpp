@@ -17,7 +17,7 @@ int main()
 	int d;
 	for (int i = 0; i < 10; ++i) {
 		d = rand() % 1000;
-		tab.push_back(d);
+		tab.push_back(rand() % 1000);
 	}
 	cout << tab.size() << endl << endl;
 	//tab.insert(tab.end(), d);
