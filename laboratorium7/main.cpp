@@ -76,6 +76,8 @@ int main(){
         record_tab.push_back(Record("Czech"));
         record_tab.push_back(Record("Nowak"));
         record_tab.push_back(Record("Nowak"));
+		record_tab.push_back(Record("Primas"));
+		record_tab.push_back(Record("Zenon"));
     }
 
     vector<Record> copy_of_record_tab;
@@ -88,6 +90,24 @@ int main(){
     //Write lines to file
     for_each(record_tab.begin(), record_tab.end(), Printfile());
     
+	//ZADANIE 8
+	cout << endl << "Zadanie 8" << endl;
+	sort(record_tab.begin(), record_tab.end());
+
+	pair<vector<Record>::iterator, vector<Record>::iterator> p1 = equal_range(record_tab.begin(), record_tab.end(), "Nowak");
+
+	for_each(p1.first, p1.second, Print());
+
+
+	//ZADANIE 9
+	cout << endl << "Zadanie 9" << endl;
+	vector<Record>::iterator itr1;
+	itr1 = lower_bound(record_tab.begin(), record_tab.end(), "N");
+	vector<Record>::iterator itr2;
+	itr2 = lower_bound(record_tab.begin(), record_tab.end(), "O");
+
+	for_each(itr1, itr2, Print());
+
 
 	return 0;
 }
