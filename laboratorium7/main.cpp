@@ -88,7 +88,8 @@ int main(){
     for_each(record_tab.begin(), record_tab.end(), Print());
 
     //Write lines to file
-    for_each(record_tab.begin(), record_tab.end(), Printfile());
+	Printfile printFile = Printfile();
+    for_each(record_tab.begin(), record_tab.end(), printFile);
     
 	//ZADANIE 8
 	cout << endl << "Zadanie 8" << endl;
