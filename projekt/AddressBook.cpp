@@ -17,8 +17,7 @@ AddressBook::~AddressBook() {
 };
 
 void AddressBook::AddRecord() {
-	char Name[100], Surname[100], City[100], Street[100], Postcode[100], HomeNumber[100], FlatNumber[100];
-	int PhoneNumber;
+	char Name[100], Surname[100], City[100], Street[100], Postcode[100], HomeNumber[100], FlatNumber[100], PhoneNumber[100];
 	cout << "Name: ";
 	cin >> Name; 
 	cout << "Surname: "; 
@@ -48,6 +47,7 @@ void AddressBook::DisplayData(int id) {
 	}
 };
 
+/*
 void AddressBook::WriteToFile() {
 	ofstream outfile;
 	outfile.open("Baza.dat", ios::binary | ios::out);
@@ -57,4 +57,4 @@ void AddressBook::WriteToFile() {
 		++itr;
 	}
 	outfile.close();
-}
+}*/

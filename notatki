@@ -10,3 +10,12 @@ Sposoby na templaty:
 	2. deklaracje w .h; definicje w .cpp -> uzywanie inline, 
 		lub wczesniejsze explicit deklarowanie w uzytych typow w .cpp
 	3. deklaracje w .h; definicje w .tpp; specjalizacje w .cpp; includuj .tpp
+
+
+############################################
+Laboratorium 7
+############################################
+
+shared_ptr - wskaźnik zlicza preferencje
+weak_ptr -  wskaźnik niezliczający preferencji
+	słówko kluczowe .lock() zamienia weak pointer w shared_ptr
