@@ -1,8 +1,10 @@
 #pragma once
+
 #include<iostream>
 #include<vector>
 #include<algorithm>
 #include<fstream>
+
 #include"Person.h"
 #include"AddressBook.h"
 
@@ -47,14 +49,26 @@ void AddressBook::DisplayData(int id) {
 	}
 };
 
-/*
+
 void AddressBook::WriteToFile() {
 	ofstream outfile;
 	outfile.open("Baza.dat", ios::binary | ios::out);
 	auto itr = Book.begin();
 	while (itr != Book.end()) {
-		outfile.write(itr, sizeof(itr));
+		itr->Save(outfile);
 		++itr;
 	}
 	outfile.close();
-}*/
+}
+/*
+void AddressBook::ReadFromFile() {
+	ifstream infile;
+	infile.open("Baza.dat", ios::binary | ios::in);
+	auto itr = Book.begin();
+	while (itr != Book.end()) {
+		itr->Load(infile);
+		++itr;
+	}
+	infile.close();
+}
+*/

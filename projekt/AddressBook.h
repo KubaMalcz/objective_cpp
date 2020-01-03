@@ -1,7 +1,9 @@
 #pragma once
+
 #include<iostream>
 #include<list>
 #include<fstream>
+
 #include"Person.h"
 
 using namespace std;
@@ -13,7 +15,8 @@ public:
 	void AddRecord();
 	//void RemoveRecord();
 	void DisplayData(int id);
-	//void WriteToFile();
+	void WriteToFile();
+	//void ReadFromFile();
 private:
 	list<Person> Book;
 };

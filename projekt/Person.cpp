@@ -82,56 +82,56 @@ void Person::Load(ifstream& inf)
 	inf.read(data, size);
 	data[size] = '\0';
 	Name = data;
-	delete data;
+	delete[] data;
 
 	inf.read((char*)&size, sizeof(size));
 	data = new char[size + 1];
 	inf.read(data, size);
 	data[size] = '\0';
 	Surname = data;
-	delete data;
+	delete[] data;
 	
 	inf.read((char*)&size, sizeof(size));
 	data = new char[size + 1];
 	inf.read(data, size);
 	data[size] = '\0';
 	City = data;
-	delete data;
+	delete[] data;
 
 	inf.read((char*)&size, sizeof(size));
 	data = new char[size + 1];
 	inf.read(data, size);
 	data[size] = '\0';
 	Street = data;
-	delete data;
+	delete[] data;
 
 	inf.read((char*)&size, sizeof(size));
 	data = new char[size + 1];
 	inf.read(data, size);
 	data[size] = '\0';
 	Postcode = data;
-	delete data;
+	delete[] data;
 
 	inf.read((char*)&size, sizeof(size));
 	data = new char[size + 1];
 	inf.read(data, size);
 	data[size] = '\0';
 	HomeNumber = data;
-	delete data;
+	delete[] data;
 	
 	inf.read((char*)&size, sizeof(size));
 	data = new char[size + 1];
 	inf.read(data, size);
 	data[size] = '\0';
 	FlatNumber = data;
-	delete data;
+	delete[] data;
 	
 	inf.read((char*)&size, sizeof(size));
 	data = new char[size + 1];
 	inf.read(data, size);
 	data[size] = '\0';
 	PhoneNumber = data;
-	delete data;
+	delete[] data;
 	
 	//inf.read((char*)&PhoneNumber, sizeof(PhoneNumber));
 };
