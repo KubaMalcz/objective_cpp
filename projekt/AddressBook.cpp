@@ -22,33 +22,34 @@ AddressBook::~AddressBook() {
 void AddressBook::AddRecord() {
 	char Name[100], Surname[100], City[100], Street[100], Postcode[100], HomeNumber[100], FlatNumber[100], PhoneNumber[100];
 	cout << "Name: ";
-	cin >> Name; 
+	cin.ignore();
+	cin.getline(Name,100); 
 	cout << "Surname: "; 
-	cin >> Surname;
+	cin.getline(Surname, 100);
 	cout << "City: ";
-	cin >> City;
+	cin.getline(City, 100);
 	cout << "Street: "; 
-	cin >> Street;
+	cin.getline(Street, 100);
 	cout << "Home number: ";
-	cin >> HomeNumber; 
+	cin.getline(HomeNumber, 100);
 	cout << "Flat number: "; 
-	cin >> FlatNumber;
+	cin.getline(FlatNumber, 100);
 	cout << "Post code: "; 
-	cin >> Postcode;
+	cin.getline(Postcode, 100);
 	cout << "Phone number: ";
-	cin >> PhoneNumber;
-	Person Per(Name, Surname, City, Street, Postcode, HomeNumber, FlatNumber, PhoneNumber);
+	cin.getline(PhoneNumber, 100);
+	Person* Per = new Person (Name, Surname, City, Street, Postcode, HomeNumber, FlatNumber, PhoneNumber);
 	Book.push_back(Per);
 };
 
-void AddressBook::AddRecord(Person P) {
+void AddressBook::AddRecord(Person* P) {
 	Book.push_back(P);
 };
 
 void AddressBook::RemoveRecord(int record_id) {
 	auto itr = Book.begin();
 	while (itr != Book.end()) {
-		if (itr->GetId() == record_id) {
+		if ((*itr)->GetId() == record_id) {
 			itr = Book.erase(itr);
 			break;
 		}
@@ -57,10 +58,10 @@ void AddressBook::RemoveRecord(int record_id) {
 };
 
 void AddressBook::DisplayData() {
-	cout << "Id		Name		Surname" << endl << "------------------------------------------" << endl;
+	cout << "Id \t Name \t Surname" << endl << "------------------------------------------" << endl;
 	auto itr = Book.begin();
 	while (itr != Book.end()) {
-		itr->DisplayDataV1();
+		(*itr)->DisplayDataV1();
 		++itr;
 	}
 };
@@ -68,8 +69,8 @@ void AddressBook::DisplayData() {
 void AddressBook::DisplayData(int id) {
 	auto itr = Book.begin();
 	while (itr != Book.end()) {
-		if (itr->GetId() == id)
-			itr->DisplayData();
+		if ((*itr)->GetId() == id)
+			(*itr)->DisplayData();
 		++itr;
 	}
 };
@@ -83,7 +84,7 @@ void AddressBook::WriteToFile() {
 	outfile.write((char*)&num_of_elemnts, sizeof(num_of_elemnts));
 	auto itr = Book.begin();
 	while (itr != Book.end()) {
-		itr->Save(outfile);
+		(*itr)->Save(outfile);
 		++itr;
 	}
 	outfile.close();
@@ -98,10 +99,10 @@ void AddressBook::ReadFromFile() {
 
 	infile.read((char*)&records_count, sizeof(records_count));
 
-	Person P;
+	Person* P = new Person[records_count];
 	for (int i=0; i<records_count; ++i) {
-		P.Load(infile);
-		Book.push_back(P);
+		P[i].Load(infile);
+		Book.push_back(&P[i]);
 	}
 	infile.close();
 }
@@ -110,8 +111,8 @@ int AddressBook::MaxIndx() {
 	int id = 0;
 	auto itr = Book.begin();
 	while (itr != Book.end()) {
-		if (itr->GetId() > id)
-			id = itr->GetId();
+		if ((*itr)->GetId() > id)
+			id = (*itr)->GetId();
 		++itr;
 	}
 	return id;

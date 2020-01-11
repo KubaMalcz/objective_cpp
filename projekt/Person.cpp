@@ -41,14 +41,12 @@ void Person::DisplayData() {
 };
 
 void Person::DisplayDataV1() {
-	cout << Id << "		" << Name << "		" << Surname << endl;
+	cout << Id << " \t " << Name << " \t " << Surname << endl;
 };
-
 
 int Person::GetId() {
 	return Id;
 };
-
 
 void Person::Save(ofstream& of)
 {

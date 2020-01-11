@@ -9,9 +9,6 @@ using namespace std;
 
 DatabaseRecord::~DatabaseRecord() {};
 
-int DatabaseRecord::GetId() {
-	return Id;
-};
 
 void DatabaseRecord::SetIndx(const int& new_value) {
 	indx = new_value;
@@ -25,6 +22,10 @@ bool DatabaseRecord::operator == (const int& Idik) {
 	if (Idik == Id)
 	{
 		return true;
+	}
+	else
+	{
+		return false;
 	}
 };
 

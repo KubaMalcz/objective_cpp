@@ -3,7 +3,7 @@
 #include<conio.h>
 
 #include"Person.h"
-//#include"DatabaseRecord.h"
+#include"DatabaseRecord.h"
 #include"AddressBook.h"
 #include"fill_db.h"
 
@@ -88,6 +88,7 @@ int main() {
 
 	//Writing database into file
 	B1.WriteToFile();
+	
 
 	return 0;
 }

@@ -8,11 +8,11 @@ using namespace std;
 class DatabaseRecord {
 public:
 	virtual ~DatabaseRecord();
-	virtual void DisplayData() {};
-	virtual void DisplayDataV1() {};	// Display only Id name and surname
-	int GetId();
-	virtual void Save(ofstream& of) {};
-	virtual void Load(ifstream& inf) {};
+	virtual void DisplayData() = 0;
+	virtual void DisplayDataV1() = 0;	// Display only Id name and surname
+	virtual int GetId() = 0;
+	virtual void Save(ofstream& of) = 0;
+	virtual void Load(ifstream& inf) = 0;
 	void SetIndx(const int& new_value);
 	void SetId(const int& new_value);
 

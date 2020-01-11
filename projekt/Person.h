@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class Person {
+class Person : public DatabaseRecord {
 public:
 	Person();
 	Person(const char Name[],
@@ -18,12 +18,12 @@ public:
 		const char HomeNumber[],
 		const char FlatNumber[],
 		const char PhoneNumber[]);
-	~Person();
-	void DisplayData();
-	void DisplayDataV1();	// Display only Id name and surname
-	int GetId();
-	void Save(ofstream& of);
-	void Load(ifstream& inf);
+	virtual ~Person();
+	virtual void DisplayData();
+	virtual void DisplayDataV1();	// Display only Id name and surname
+	virtual int GetId();
+	virtual void Save(ofstream& of);
+	virtual void Load(ifstream& inf);
 	void SetIndx(const int& new_value);
 
 	bool operator == (const int& Idik);
