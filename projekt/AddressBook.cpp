@@ -4,6 +4,7 @@
 #include<vector>
 #include<algorithm>
 #include<fstream>
+#include<string>
 
 #include"Person.h"
 #include"AddressBook.h"
@@ -40,6 +41,30 @@ void AddressBook::AddRecord() {
 	Book.push_back(Per);
 };
 
+void AddressBook::AddRecord(Person P) {
+	Book.push_back(P);
+};
+
+void AddressBook::RemoveRecord(int record_id) {
+	auto itr = Book.begin();
+	while (itr != Book.end()) {
+		if (itr->GetId() == record_id) {
+			itr = Book.erase(itr);
+			break;
+		}
+		++itr;
+	}
+};
+
+void AddressBook::DisplayData() {
+	cout << "Id		Name		Surname" << endl << "------------------------------------------" << endl;
+	auto itr = Book.begin();
+	while (itr != Book.end()) {
+		itr->DisplayDataV1();
+		++itr;
+	}
+};
+
 void AddressBook::DisplayData(int id) {
 	auto itr = Book.begin();
 	while (itr != Book.end()) {
@@ -53,6 +78,9 @@ void AddressBook::DisplayData(int id) {
 void AddressBook::WriteToFile() {
 	ofstream outfile;
 	outfile.open("Baza.dat", ios::binary | ios::out);
+	size_t size;
+	int num_of_elemnts = Book.size();;
+	outfile.write((char*)&num_of_elemnts, sizeof(num_of_elemnts));
 	auto itr = Book.begin();
 	while (itr != Book.end()) {
 		itr->Save(outfile);
@@ -60,15 +88,31 @@ void AddressBook::WriteToFile() {
 	}
 	outfile.close();
 }
-/*
+
 void AddressBook::ReadFromFile() {
 	ifstream infile;
 	infile.open("Baza.dat", ios::binary | ios::in);
-	auto itr = Book.begin();
-	while (itr != Book.end()) {
-		itr->Load(infile);
-		++itr;
+
+	size_t size;
+	int records_count=0;
+
+	infile.read((char*)&records_count, sizeof(records_count));
+
+	Person P;
+	for (int i=0; i<records_count; ++i) {
+		P.Load(infile);
+		Book.push_back(P);
 	}
 	infile.close();
 }
-*/
+
+int AddressBook::MaxIndx() {
+	int id = 0;
+	auto itr = Book.begin();
+	while (itr != Book.end()) {
+		if (itr->GetId() > id)
+			id = itr->GetId();
+		++itr;
+	}
+	return id;
+};

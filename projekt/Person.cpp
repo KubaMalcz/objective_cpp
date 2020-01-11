@@ -6,7 +6,9 @@
 
 using namespace std;
 
-Person::Person() {};
+Person::Person() {
+	indx += 1;
+};
 
 Person::Person(const char Nam[],
 	const char Surnam[],
@@ -38,14 +40,21 @@ void Person::DisplayData() {
 	cout << "Phone number: " << PhoneNumber << endl;
 };
 
+void Person::DisplayDataV1() {
+	cout << Id << "		" << Name << "		" << Surname << endl;
+};
+
+
 int Person::GetId() {
 	return Id;
 };
+
 
 void Person::Save(ofstream& of)
 {
 	size_t size;
 	
+	of.write((char*)&Id, sizeof(Id));
 	size = Name.size();
 	of.write((char*)&size, sizeof(size));
 	of.write((char*)Name.c_str(), size);
@@ -76,6 +85,8 @@ void Person::Load(ifstream& inf)
 {
 	size_t size;
 	char* data;
+
+	inf.read((char*)&Id, sizeof(Id));
 
 	inf.read((char*)&size, sizeof(size));
 	data = new char[size + 1];
@@ -133,7 +144,17 @@ void Person::Load(ifstream& inf)
 	PhoneNumber = data;
 	delete[] data;
 	
-	//inf.read((char*)&PhoneNumber, sizeof(PhoneNumber));
+};
+
+void Person::SetIndx(const int& new_value) {
+	indx = new_value;
+};
+
+bool Person::operator == (const int &Idik) {
+	if (Idik == Id)
+	{
+		return true;
+	}
 };
 
 int Person::indx = 0;

@@ -4,6 +4,7 @@
 #include<list>
 #include<fstream>
 
+//#include"DatabaseRecord.h"
 #include"Person.h"
 
 using namespace std;
@@ -13,10 +14,13 @@ public:
 	AddressBook();
 	~AddressBook();
 	void AddRecord();
-	//void RemoveRecord();
-	void DisplayData(int id);
+	void AddRecord(Person P);
+	void RemoveRecord(int record_id);
+	void DisplayData();
+	void DisplayData(int id); //display data for selected record
 	void WriteToFile();
-	//void ReadFromFile();
+	void ReadFromFile();
+	int MaxIndx(); //return max index value in DB
 private:
 	list<Person> Book;
 };
